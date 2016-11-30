@@ -14,7 +14,7 @@ class Merchandise(models.Model):
     merch_description = models.TextField(blank=True, default='')
 
     class Meta:
-        db_table = u'order_merch_cat'
+        db_table = u'MerchCat'
     
     def __unicode__(self):
         return self.title
@@ -24,5 +24,10 @@ class Merchandise(models.Model):
 
 class MerchPhoto(models.Model):
     idmerch=models.ForeignKey(Merchandise)
-    name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='myphoto/%Y/%m/%d/', null=True, max_length=255)
+    name = models.CharField(max_length=255, null=True)
+    image = models.ImageField(upload_to='/images/', null=True, max_length=255, default='images/none/mo_img.jpg')
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = u'MerchImage'
+        ordering = ('created',) 
