@@ -129,3 +129,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
+REST_FRAMEWORK = {
+    'DEFAULT_METADATA_CLASS': ('rest_framework.metadata.SimpleMetadata'),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework_jsonp.renderers.JSONPRenderer',
+    )
+}

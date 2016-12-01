@@ -14,20 +14,17 @@ class Merchandise(models.Model):
     merch_description = models.TextField(blank=True, default='')
 
     class Meta:
-        db_table = u'MerchCat'
-    
-    def __unicode__(self):
-        return self.title
-    
+        db_table = u'MerchCat'    
+   
     def save(self, *args, **kwargs):
         return super(Merchandise, self).save(*args, **kwargs)
 
 class MerchPhoto(models.Model):
-    idmerch=models.ForeignKey(Merchandise)
+    idmerch = models.ForeignKey(Merchandise)
     name = models.CharField(max_length=255, null=True)
-    image = models.ImageField(upload_to='/images/', null=True, max_length=255, default='images/none/mo_img.jpg')
+    image = models.ImageField(upload_to='images/', null=True, max_length=255)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        db_table = u'MerchImage'
+        db_table = u'MerchPhoto'
         ordering = ('created',) 
