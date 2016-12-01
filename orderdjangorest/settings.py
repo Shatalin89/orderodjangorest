@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'orderdjangorest',
         'USER': 'postgres',
         'PASSWORD': '000111',
-        'HOST': '192.168.1.10',
+        'HOST': '192.168.1.140',
         'PORT': '5432', 
     }
 }
@@ -134,6 +134,11 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
-        'rest_framework_jsonp.renderers.JSONPRenderer',
-    )
+
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+    'rest_framework.parsers.JSONParser',
+    'rest_framework.parsers.FormParser',
+    'rest_framework.parsers.MultiPartParser',
+),
 }

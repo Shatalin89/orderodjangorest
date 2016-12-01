@@ -3,7 +3,7 @@ from .models import MerchPhoto, Merchandise
 
 
 class MerchPhotoSerializer(serializers.ModelSerializer):
-	
+    
     image = serializers.ImageField(max_length=None,use_url=True)
     
     class Meta:
@@ -14,6 +14,6 @@ class MerchPhotoSerializer(serializers.ModelSerializer):
 class MerchSerializer(serializers.ModelSerializer):
 
     class Meta:
-    	model = Merchandise
-    	field = ('name_merch', 'merch_price', 'merch_count', 'merch_enabled', 'merch_del', 'merch_description')
+        model = Merchandise
+        fields = ('id', 'name_merch', 'merch_price', 'merch_count', 'merch_enabled', 'merch_del', 'merch_description')
         
