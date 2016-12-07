@@ -19,11 +19,13 @@ class Merchandise(models.Model):
     def save(self, *args, **kwargs):
         return super(Merchandise, self).save(*args, **kwargs)
 
+
 class MerchPhoto(models.Model):
-    idmerch = models.ForeignKey(Merchandise)
+    idmerch = models.ForeignKey(Merchandise, related_name='photos')
     name = models.CharField(max_length=255, null=True)
     image = models.ImageField(upload_to='images/', null=True, max_length=255)
     created = models.DateTimeField(auto_now_add=True)
+    phototype = models.CharField(max_length=1, default="m")
 
     class Meta:
         db_table = u'MerchPhoto'

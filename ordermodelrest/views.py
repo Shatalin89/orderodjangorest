@@ -14,3 +14,6 @@ class MerchPhotoView(viewsets.ModelViewSet):
 class MerchView(viewsets.ModelViewSet):
     queryset = Merchandise.objects.all()
     serializer_class = MerchSerializer
+
+
+		
