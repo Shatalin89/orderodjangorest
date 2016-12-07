@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from ordermodelrest import views
+from ordermodelrest.views import MerchViewEnabled
 # from rest_framework import settings
 from rest_framework import routers
 from django.conf.urls.static import static
@@ -26,7 +27,9 @@ router.register(r'merch/photo', views.MerchPhotoView, 'photo')
 router.register(r'merch', views.MerchView, 'merch')
 
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
+    url('^mercing/(?P<merch_enabled>.+)/$', MerchViewEnabled.as_view()),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
