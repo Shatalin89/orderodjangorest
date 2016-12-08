@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'orderdjangorest',
         'USER': 'postgres',
         'PASSWORD': '000111',
-        'HOST': '192.168.1.140',
+        'HOST': '192.168.1.10',
         'PORT': '5432', 
     }
 }

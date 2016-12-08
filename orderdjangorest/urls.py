@@ -23,13 +23,15 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 router = routers.DefaultRouter()
-router.register(r'merch/photo', views.MerchPhotoView, 'photo')
+router.register(r'merch/photo', views.PhotoView, 'photo')
 router.register(r'merch', views.MerchView, 'merch')
-
+#router.register(r'photo', views.PhotoView, 'photos')
+router.register(r'mercher', views.MerchingView, 'mercher')
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
     url('^mercing/(?P<merch_enabled>.+)/$', MerchViewEnabled.as_view()),
+
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

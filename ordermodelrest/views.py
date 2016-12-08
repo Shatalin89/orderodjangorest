@@ -1,4 +1,4 @@
-from serializers import MerchPhotoSerializer, MerchSerializer
+from serializers import MerchPhotoSerializer, MerchSerializer, PhotoSerializer, MerchingSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,6 +6,14 @@ from rest_framework import viewsets
 from rest_framework import filters
 from models import MerchPhoto, Merchandise
 from rest_framework import generics
+
+class PhotoView(viewsets.ModelViewSet):
+    queryset = MerchPhoto.objects.all()
+    serializer_class = PhotoSerializer
+ 
+class MerchingView(viewsets.ModelViewSet):
+    queryset = MerchPhoto.objects.all()
+    serializer_class = MerchingSerializer      
 
 class MerchPhotoView(viewsets.ModelViewSet):
     queryset = MerchPhoto.objects.all()
